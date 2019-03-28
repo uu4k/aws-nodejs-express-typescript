@@ -5,6 +5,7 @@
   "main": "handler.js",
   "scripts": {
     "start": "sls offline",
+    "debug": "export SLS_DEBUG=* && node --inspect $(type -p sls) offline -s dev",
     "deploy": "sls deploy",
     "remove": "sls remove"
   },
