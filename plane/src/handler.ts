@@ -1,13 +1,14 @@
-import { Request, Response } from 'express'
-const serverless = require('serverless-http')
-const express = require('express')
-const app = express()
-const router = require('express-promise-router')()
+import * as express from 'express'
+import serverless from 'serverless-http'
+import Router from 'express-promise-router'
 
-router.get('/', (_req: Request, res: Response) => {
+const app = express()
+const router = Router()
+
+router.get('/', (_req: express.Request, res: express.Response) => {
   res.json({ message: 'Hello World!' })
 })
 
 app.use('/', router)
 
-module.exports.main = serverless(app)
+export const main = serverless(app)
