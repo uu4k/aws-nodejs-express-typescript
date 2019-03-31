@@ -7,11 +7,14 @@
     "start": "sls offline",
     "debug": "export SLS_DEBUG=* && node --inspect $(type -p sls) offline -s dev",
     "deploy": "sls deploy",
-    "remove": "sls remove"
+    "remove": "sls remove",
+    "start:dynamodb": "sls dynamodb install && sls dynamodb start"
   },
   "dependencies": {
+    "aws-sdk": "^2.432.0",
     "express": "^4.16.4",
     "express-promise-router": "^3.0.3",
+    "serverless-dynamodb-local": "^0.2.37",
     "serverless-http": "^1.9.1",
     "source-map-support": "^0.5.10"
   },
