@@ -38,6 +38,7 @@ functions:
           path: '{proxy+}'
 
 custom:
+  defaultStage: dev
   dynamodb:
     start:
       port: 8000

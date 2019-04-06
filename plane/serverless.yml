@@ -24,3 +24,6 @@ functions:
       - http:
           method: ANY
           path: '{proxy+}'
+
+custom:
+  defaultStage: dev
