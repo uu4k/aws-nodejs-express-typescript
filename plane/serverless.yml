@@ -10,6 +10,9 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: ap-northeast-1
+  stage: ${opt:stage, self:custom.defaultStage}
+  environment:
+    STAGE: ${self:provider.stage}
 
 functions:
   app:

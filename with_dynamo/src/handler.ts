@@ -27,7 +27,7 @@ router.get('/', (_req: express.Request, res: express.Response) => {
 router.get('/:id', async (req: express.Request, res: express.Response) => {
   const dynamodb = getDynamoClient(req.ip)
   const params: aws.DynamoDB.DocumentClient.GetItemInput = {
-    TableName: 'hello',
+    TableName: process.env.STAGE + 'hello',
     Key: {
       id: req.params.id
     }

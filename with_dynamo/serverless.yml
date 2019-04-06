@@ -11,8 +11,10 @@ provider:
   name: aws
   runtime: nodejs8.10
   region: ap-northeast-1
+  stage: ${opt:stage, self:custom.defaultStage}
   environment:
-    DYNAMODB_TABLE: hello
+    STAGE: ${self:provider.stage}
+    DYNAMODB_TABLE: ${self:provider.stage}hello
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -45,7 +47,7 @@ custom:
     seed:
       development:
         sources:
-          - table: hello
+          - table: ${self:provider.environment.DYNAMODB_TABLE}
             sources: [./migrations/hello.json]
 
 resources:
